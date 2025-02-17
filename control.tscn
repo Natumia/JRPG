@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddfurm5n2f3uq"]
+
+[ext_resource type="Script" path="res://player_card.gd" id="1_ktvnx"]
+[ext_resource type="Script" path="res://battle_controller.gd" id="1_lntyp"]
+[ext_resource type="Resource" uid="uid://ch1ojdmi44k32" path="res://Resources/Enemy.tres" id="2_hui2l"]
+[ext_resource type="Resource" uid="uid://dbnaqi4k0oh54" path="res://Resources/Player.tres" id="2_kbpvd"]
+[ext_resource type="Texture2D" uid="uid://dg7gs6ghyd5os" path="res://icon.svg" id="2_vc248"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lntyp")
+
+[node name="PlayerCard" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 154.0
+offset_right = 266.0
+offset_bottom = 194.0
+script = ExtResource("1_ktvnx")
+actor_resource = ExtResource("2_kbpvd")
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="PlayerCard"]
+layout_mode = 2
+texture = ExtResource("2_vc248")
+
+[node name="Label" type="Label" parent="PlayerCard"]
+layout_mode = 2
+text = "Hero"
+
+[node name="Label2" type="Label" parent="PlayerCard"]
+layout_mode = 2
+text = "10"
+
+[node name="EnemyCard" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 741.0
+offset_top = 171.0
+offset_right = 869.0
+offset_bottom = 353.0
+script = ExtResource("1_ktvnx")
+actor_resource = ExtResource("2_hui2l")
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="EnemyCard"]
+layout_mode = 2
+texture = ExtResource("2_vc248")
+
+[node name="Label" type="Label" parent="EnemyCard"]
+layout_mode = 2
+text = "Enemy"
+
+[node name="Label2" type="Label" parent="EnemyCard"]
+layout_mode = 2
+text = "5"
+
+[node name="AttackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 508.0
+offset_right = 375.0
+offset_bottom = 539.0
+text = "Attackw"
+
+[connection signal="actor_changed" from="PlayerCard" to="PlayerCard" method="_on_actor_changed"]
+[connection signal="actor_changed" from="EnemyCard" to="EnemyCard" method="_on_actor_changed"]
+[connection signal="pressed" from="AttackButton" to="." method="_on_attack_button_pressed"]
