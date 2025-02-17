@@ -15,12 +15,39 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lntyp")
 
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_direction = 2
+layout_mode = 0
+offset_left = 712.0
+offset_top = 223.0
+offset_right = 1104.0
+offset_bottom = 405.0
+columns = 3
+
+[node name="EnemyCard" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+script = ExtResource("1_ktvnx")
+actor_resource = ExtResource("2_hui2l")
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/EnemyCard"]
+layout_mode = 2
+texture = ExtResource("2_vc248")
+
+[node name="Label" type="Label" parent="GridContainer/EnemyCard"]
+layout_mode = 2
+text = "Enemy"
+
+[node name="Label2" type="Label" parent="GridContainer/EnemyCard"]
+layout_mode = 2
+text = "5"
+
 [node name="PlayerCard" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 226.0
-offset_top = 154.0
-offset_right = 266.0
-offset_bottom = 194.0
+offset_left = 18.0
+offset_top = 15.0
+offset_right = 146.0
+offset_bottom = 197.0
 script = ExtResource("1_ktvnx")
 actor_resource = ExtResource("2_kbpvd")
 metadata/_edit_group_ = true
@@ -37,36 +64,14 @@ text = "Hero"
 layout_mode = 2
 text = "10"
 
-[node name="EnemyCard" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 741.0
-offset_top = 171.0
-offset_right = 869.0
-offset_bottom = 353.0
-script = ExtResource("1_ktvnx")
-actor_resource = ExtResource("2_hui2l")
-metadata/_edit_group_ = true
-
-[node name="TextureRect" type="TextureRect" parent="EnemyCard"]
-layout_mode = 2
-texture = ExtResource("2_vc248")
-
-[node name="Label" type="Label" parent="EnemyCard"]
-layout_mode = 2
-text = "Enemy"
-
-[node name="Label2" type="Label" parent="EnemyCard"]
-layout_mode = 2
-text = "5"
-
 [node name="AttackButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 304.0
-offset_top = 508.0
-offset_right = 375.0
-offset_bottom = 539.0
+offset_left = 10.0
+offset_top = 577.0
+offset_right = 152.0
+offset_bottom = 639.0
 text = "Attackw"
 
+[connection signal="actor_changed" from="GridContainer/EnemyCard" to="GridContainer/EnemyCard" method="_on_actor_changed"]
 [connection signal="actor_changed" from="PlayerCard" to="PlayerCard" method="_on_actor_changed"]
-[connection signal="actor_changed" from="EnemyCard" to="EnemyCard" method="_on_actor_changed"]
 [connection signal="pressed" from="AttackButton" to="." method="_on_attack_button_pressed"]

@@ -1,0 +1,21 @@
+I need to have a way to load resources into an actor as a duplicate, then return the actors stats out when the battle is finished.
+
+Actor Stats should be a class that handles only the numbers shown. Sprite and animations should be based on the scene.
+
+Eventually the stats will have attacks with animation call outs and their own damage values and weights.
+
+Actor Class - extends Node 2d
+Attack func - housed the basic attack formula
+damage func - adjusts health stat if exists
+death func - if health stat exists calls this when it's 0
+
+Enemy Class - extends actor class
+Just exists at the moment.
+
+Stats Component - extends Node
+Health, max, current
+Damage, variance
+Hit Rate
+
+Okay I need to restructure it. What should handle attacking and what shouldn't?
+Actors should handle attacking, attacks, and damages.
