@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cq7i0v47y71ld"]
+[gd_scene load_steps=7 format=3 uid="uid://0dpinryur8ff"]
 
-[ext_resource type="Script" path="res://Actor/ActorClass.gd" id="1_sjlhs"]
-[ext_resource type="Script" path="res://Actor/Components/Status.gd" id="2_wiwt6"]
-[ext_resource type="Texture2D" uid="uid://dg7gs6ghyd5os" path="res://icon.svg" id="3_3epyx"]
-[ext_resource type="Script" path="res://Actor/Components/HealthBar.gd" id="4_etjr6"]
+[ext_resource type="Script" path="res://Actor/ActorClass.gd" id="1_scclv"]
+[ext_resource type="Script" path="res://Actor/Components/Status.gd" id="2_3gvyv"]
+[ext_resource type="Script" path="res://Actor/Components/HealthBar.gd" id="3_e4ppe"]
+[ext_resource type="Texture2D" uid="uid://dg7gs6ghyd5os" path="res://icon.svg" id="4_em6wq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opa8m"]
 bg_color = Color(0.0807833, 0.0807834, 0.0807833, 1)
@@ -11,12 +11,12 @@ bg_color = Color(0.0807833, 0.0807834, 0.0807833, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0cife"]
 bg_color = Color(0, 1, 0, 1)
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("status")]
-script = ExtResource("1_sjlhs")
+[node name="DebugActor" type="Node2D" node_paths=PackedStringArray("status")]
+script = ExtResource("1_scclv")
 status = NodePath("Status")
 
 [node name="Status" type="Node" parent="."]
-script = ExtResource("2_wiwt6")
+script = ExtResource("2_3gvyv")
 
 [node name="HealthBar" type="ProgressBar" parent="." node_paths=PackedStringArray("status")]
 offset_left = -64.0
@@ -26,9 +26,9 @@ offset_bottom = 96.0
 theme_override_styles/background = SubResource("StyleBoxFlat_opa8m")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0cife")
 show_percentage = false
-script = ExtResource("4_etjr6")
+script = ExtResource("3_e4ppe")
 status = NodePath("../Status")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 1, 0, 1)
-texture = ExtResource("3_3epyx")
+texture = ExtResource("4_em6wq")

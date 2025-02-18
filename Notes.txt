@@ -19,3 +19,7 @@ Hit Rate
 
 Okay I need to restructure it. What should handle attacking and what shouldn't?
 Actors should handle attacking, attacks, and damages.
+
+
+Now I need to add a turn system. I am hoping to organize all actors based on a speed value each turn and place them down based on that.
+Or speed will be how many actions until said players' turn. Eitherway I want a system more closer to Final Fantasy X and less older final fantasies.
